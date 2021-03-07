@@ -1,0 +1,75 @@
+.rating {
+	display: inline-block;
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	font-size: 50px;
+	label {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		cursor: pointer;
+		&:last-child {
+			position: static;
+			.icon {
+				color: var(--primary-dark);
+			}
+		}
+    @for $i from 1 to 8 {
+      &:nth-child(#{$i}) {
+        transition-delay: $i * 0.1 + 0.3s;
+        z-index: ($i - 6) * -1;
+      }
+    }
+    
+		input {
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			&:focus {
+				&:not(:checked) {
+					~ {
+						.icon {
+							&:last-child {
+								color: var(--primary-dark);
+								text-shadow: 0 0 5px var(--orange);
+							}
+						}
+					}
+				}
+			}
+		}
+		.icon {
+			float: left;
+			color: transparent;
+		}
+	}
+	&:not(:hover) {
+		label {
+			input {
+				&:checked {
+					~ {
+						.icon {
+							color: var(--orange);
+						}
+					}
+				}
+			}
+		}
+	}
+	&:hover {
+		label {
+			&:hover {
+				input {
+					~ {
+						.icon {
+							color: var(--orange);
+						}
+					}
+				}
+			}
+		}
+	}
+}

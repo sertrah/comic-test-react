@@ -1,0 +1,19 @@
+.navbar{
+    text-align: center;
+    background-color: var(--gray-light);
+    padding: 5px 0px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    box-shadow: 2px 5px 9px -6px rgba(0,0,0,0.88);
+    height: 50px;
+    img{
+        width: 100px;
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+    }
+}
